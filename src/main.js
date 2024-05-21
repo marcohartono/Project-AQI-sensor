@@ -3,8 +3,16 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { createBootstrap } from 'bootstrap-vue-next'
 
-createApp(App).use(router).mount('#app')
+// Add the necessary CSS
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
+
+createApp(App)
+  .use(router)
+  .use(createBootstrap({ components: true, directives: true }))
+  .mount('#app')
 
 var myMap = L.map('map').setView([-6.200000, 106.816666], 13);
 
