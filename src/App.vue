@@ -7,10 +7,7 @@
           </ul>
       </nav>
   </header>
-  <div class="container-fluid" id="Hero-section" >
-    <h1>Jakarta Air Quality Index</h1>
-    <p>Real-time updates on the air you breathe</p>
-  </div>
+
   <router-view>
     
   </router-view>
