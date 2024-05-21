@@ -41,6 +41,11 @@
       </b-col>
     </b-row>
   </div>
+  <div v-for="(device, index) in devices" :key="index">
+    <router-link :to="`/detail/${device.device_id}`">
+      {{ device.name }}
+    </router-link>
+  </div>
   
   
   <b-row>
