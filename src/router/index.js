@@ -11,6 +11,11 @@ const routes = [
     name: 'About',
     component: () => import(/* webpackChunkName: "about" */ '../components/About.vue'),
   },
+  {
+    path: '/detail/:deviceId',
+    name: 'Device Detail',
+    component: () => import(/* webpackChunkName: "about" */ '../components/DeviceDetail.vue'),
+  },
 ]
 
 const router = createRouter({
