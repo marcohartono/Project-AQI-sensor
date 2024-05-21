@@ -2,8 +2,9 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
 
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')
 
 var myMap = L.map('map').setView([-6.200000, 106.816666], 13);
 
