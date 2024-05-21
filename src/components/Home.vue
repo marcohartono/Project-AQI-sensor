@@ -1,7 +1,19 @@
 <template>
     <main>
   
-  <div class="container" id="device-list" >
+  
+  
+  
+  <div>
+    <b-row>
+      <div class="bg-success rounded mt=400" >
+    <h1>Jakarta Air Quality Index</h1>
+    <p>Real-time updates on the air you breathe</p>
+  </div>
+    </b-row>
+    <b-row>
+      
+      <b-col><div id="device-list" >
     <nav>
       <ul> 
         <li v-for="(device, index) in devices" :key="index">
@@ -10,17 +22,27 @@
       </ul>
     </nav>
   </div>
-  
-  
-  <section id="sensor" v-if="devices[selectedDevice]">
-  <h2 class="bg-primary text-white p-3 rounded">{{ devices[selectedDevice].name }}</h2>
-  <div class="sensor-graphic">
-    <p>CO2 PPM: {{ devices[selectedDevice].latest_payload?.CO2 }}</p>
-    <p>Humidity Percent: {{ devices[selectedDevice].latest_payload?.Humidity }}</p>
-    <p>Temperature: {{ devices[selectedDevice].latest_payload?.Temperature }}°C</p>
-    <p>Dust PPM: {{ devices[selectedDevice].latest_payload?.PM25 }}</p>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col ld="4">
+        <VueSpeedometer :value="Number(devices[selectedDevice]?.latest_payload?.CO2 ?? 0)" :minValue=400 :maxValue=3100 :segments="3" startColor="#00FF00" endColor="#FFFF00"/>
+      </b-col>
+      <b-col md="8">
+        <section id="sensor" v-if="devices[selectedDevice]">
+          <h2 class="bg-primary text-white p-3 rounded">{{ devices[selectedDevice].name }}</h2>
+          <div class="sensor-graphic">
+              <p>CO2 PPM: {{ devices[selectedDevice].latest_payload?.CO2 }}</p>
+               <p>Humidity Percent: {{ devices[selectedDevice].latest_payload?.Humidity }}</p>
+                <p>Temperature: {{ devices[selectedDevice].latest_payload?.Temperature }}°C</p>
+               <p>Dust PPM: {{ devices[selectedDevice].latest_payload?.PM25 }}</p>
+            </div>
+        </section>
+      </b-col>
+    </b-row>
   </div>
-  </section>
+  
+  
   <b-row>
     <b-col md="4">
         Column 1
@@ -35,28 +57,7 @@
     </b-col>
   </b-row>
         
-  
-  <!-- <h2>Historical Data for {{ devices[selectedDevice].name }}</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Collected Datetime</th>
-              <th>PM2.5</th>
-              <th>CO2</th>
-              <th>Temperature</th>
-              <th>Humidity</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="record in deviceHistory" :key="device_id">
-              <td>{{ record.date }}</td>
-              <td>{{ record.payloads.co2_ppm }}</td>
-              <td>{{ record.CO2 }}</td>
-              <td>{{ record.Temperature }}</td>
-              <td>{{ record.Humidity }}</td>
-            </tr>
-          </tbody>
-        </table> -->
+
   
     </main>
   
@@ -75,9 +76,13 @@
   import { defineComponent } from 'vue'
   import Pusher from 'pusher-js'
   import emitter from './eventBus';
+  import VueSpeedometer from "vue-speedometer"
   
   export default defineComponent({
   name: 'SensorPage',
+  components:{
+    VueSpeedometer,
+  },
   data() {
     return {
       devices: [],
