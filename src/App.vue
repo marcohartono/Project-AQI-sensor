@@ -7,7 +7,13 @@
           </ul>
       </nav>
   </header>
-  <router-view></router-view>
+  <div class="container-fluid" id="Hero-section" >
+    <h1>Jakarta Air Quality Index</h1>
+    <p>Real-time updates on the air you breathe</p>
+  </div>
+  <router-view>
+    
+  </router-view>
 </template>
 
 <script lang="ts">
