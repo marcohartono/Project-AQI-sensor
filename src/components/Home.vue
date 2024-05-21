@@ -26,8 +26,7 @@
     </b-row>
     <b-row>
       <b-col ld="4">
-        <VueSpeedometer :value="devices[selectedDevice]?.latest_payload?.CO2 ?? 0" :minValue="400" :maxValue="3100" :segments="3" startColor="#00FF00" endColor="#FFFF00"/>
-
+        <VueSpeedometer :value="Number(devices[selectedDevice]?.latest_payload?.CO2 ?? 0)" :minValue=400 :maxValue=3100 :segments="3" startColor="#00FF00" endColor="#FFFF00"/>
       </b-col>
       <b-col md="8">
         <section id="sensor" v-if="devices[selectedDevice]">
