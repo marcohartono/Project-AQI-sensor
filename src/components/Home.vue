@@ -4,7 +4,7 @@
   <div class="container" id="device-list" >
     <nav>
       <ul> 
-        <li v-for="(device) in devices" :key="device_id">
+        <li v-for="(device) in devices" :key="device.id">
           <a href="#" @click="selectDevice(device)">{{ device.name }}</a>
         </li>
       </ul>
@@ -15,10 +15,10 @@
   <section id="sensor" v-if="selectedDevice">
   <h2>{{ selectedDevice.name }}</h2>
   <div class="sensor-graphic">
-    <p>CO2 PPM: {{ selectedDevice.latest_payload.CO2 }}</p>
-    <p>Humidity Percent: {{ selectedDevice.latest_payload.Humidity }}</p>
-    <p>Temperature: {{ selectedDevice.latest_payload.Temperature }}°C</p>
-    <p>Dust PPM: {{ selectedDevice.latest_payload.PM25 }}</p>
+    <p>CO2 PPM: {{ selectedDevice.latest_payload?.CO2 }}</p>
+    <p>Humidity Percent: {{ selectedDevice.latest_payload?.Humidity }}</p>
+    <p>Temperature: {{ selectedDevice.latest_payload?.Temperature }}°C</p>
+    <p>Dust PPM: {{ selectedDevice.latest_payload?.PM25 }}</p>
   </div>
   </section>
         
