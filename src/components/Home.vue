@@ -4,26 +4,39 @@
   <div class="container" id="device-list" >
     <nav>
       <ul> 
-        <li v-for="(device) in devices" :key="device.id">
-          <a href="#" @click="selectDevice(device)">{{ device.name }}</a>
+        <li v-for="(device, index) in devices" :key="index">
+          <a href="#" @click="selectDevice(index)">{{ device.name }}</a>
         </li>
       </ul>
     </nav>
   </div>
   
   
-  <section id="sensor" v-if="selectedDevice">
-  <h2>{{ selectedDevice.name }}</h2>
+  <section id="sensor" v-if="devices[selectedDevice]">
+  <h2 class="bg-primary text-white p-3 rounded">{{ devices[selectedDevice].name }}</h2>
   <div class="sensor-graphic">
-    <p>CO2 PPM: {{ selectedDevice.latest_payload?.CO2 }}</p>
-    <p>Humidity Percent: {{ selectedDevice.latest_payload?.Humidity }}</p>
-    <p>Temperature: {{ selectedDevice.latest_payload?.Temperature }}°C</p>
-    <p>Dust PPM: {{ selectedDevice.latest_payload?.PM25 }}</p>
+    <p>CO2 PPM: {{ devices[selectedDevice].latest_payload?.CO2 }}</p>
+    <p>Humidity Percent: {{ devices[selectedDevice].latest_payload?.Humidity }}</p>
+    <p>Temperature: {{ devices[selectedDevice].latest_payload?.Temperature }}°C</p>
+    <p>Dust PPM: {{ devices[selectedDevice].latest_payload?.PM25 }}</p>
   </div>
   </section>
+  <b-row>
+    <b-col md="4">
+        Column 1
+    </b-col>
+    <b-col md="8">
+        Column 2
+    </b-col>
+  </b-row>
+  <b-row class="mt-3">
+    <b-col>
+        Large Column
+    </b-col>
+  </b-row>
         
   
-  <!-- <h2>Historical Data for {{ selectedDevice.name }}</h2>
+  <!-- <h2>Historical Data for {{ devices[selectedDevice].name }}</h2>
         <table>
           <thead>
             <tr>
@@ -84,9 +97,9 @@
     },
   
   methods: {
-    selectDevice(device) {
-      this.selectedDevice = device; // Set the selected device to the clicked device
-      this.getHistoricalData(device.device_id);
+    selectDevice(index) {
+      this.selectedDevice = index; // Set the selected device to the clicked device
+    //   this.getHistoricalData(device.device_id);
     },
     startWebSocket() {
       // Initialize Pusher
@@ -138,5 +151,3 @@
   
   
   </script>
-  
-  

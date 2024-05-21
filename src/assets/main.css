@@ -95,13 +95,13 @@ main {
 }
 
 /* Styling the section headers */
-section h2 {
+/* section h2 {
   background-color: #007BFF;
   color: white;
   padding: 10px;
   border-radius: 5px;
   text-transform: uppercase;
-}
+} */
 
 /* Styling for the sensor and data analysis sections */
 section {
