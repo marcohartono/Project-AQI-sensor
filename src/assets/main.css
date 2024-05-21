@@ -1,0 +1,150 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #333;
+  color: white;
+}
+#Hero-section {
+  background: linear-gradient(to right, rgba(89, 213, 188, 0.7), rgba(34, 215, 110, 0.7)), url('/images/jakarta-cityscape.jpg') no-repeat center center/cover;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 50px 20px;
+  position: relative;
+}
+
+#Hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+#Hero-section p {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+#device-list{
+  left: 0; /* Aligns the sidebar to the left edge */
+  top: 0; /* Aligns the sidebar to the top */
+  background-color: #f4f4f4; /* Light gray background color */
+  overflow-y: auto; /* Allows vertical scrolling within the container */
+
+}
+
+#device-list nav ul{
+  display: flex; /* Using flexbox to align items horizontally */
+  flex-direction: row; 
+  align-items: center;
+   /* Adjust height based on content */
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow-x: auto; /* Enables horizontal scrolling */
+  list-style-type: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+#device-list nav ul li{
+  border-bottom: 1px solid #ccc;
+}
+
+#device-list a{
+  display: block; /* Makes the entire area of the list item clickable */
+  padding: 15px 20px; /* Padding for clickable area */
+  text-decoration: none; /* Removes underline from links */
+  color: #333;
+}
+
+#device-list a:hover{
+  background-color: #ddd;
+}
+
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+#map { 
+  height: 70vh; 
+}
+
+
+/* General styles for the entire page */
+main {
+  font-family: 'Arial', sans-serif;
+  max-width: 960px;
+
+
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the section headers */
+section h2 {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+/* Styling for the sensor and data analysis sections */
+section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* Styles for the sensor data readings */
+.sensor-graphic p {
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.sensor-graphic p:last-child {
+  border-bottom: none;
+}
+
+/* Data blocks style, assuming you might add blocks here */
+.data-blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.data-blocks div {
+  padding: 20px;
+  background: #efefef;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .data-blocks {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* Add more styles as needed for other elements */
+
+
+/* Add responsive design styles here */
