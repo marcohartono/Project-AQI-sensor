@@ -4,15 +4,20 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { createBootstrap } from 'bootstrap-vue-next'
+import endpoints from './services/api';
 
 // Add the necessary CSS
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 
-createApp(App)
+const app = createApp(App)
   .use(router)
   .use(createBootstrap({ components: true, directives: true }))
-  .mount('#app')
+
+// global this.$api
+app.config.globalProperties.$api = endpoints
+
+app.mount('#app')
 
 var myMap = L.map('map').setView([-6.200000, 106.816666], 13);
 

@@ -126,18 +126,16 @@
     
   
     async getData() {
-      const instanceAxios = axios.create({
-        baseURL: import.meta.env.VITE_API_URL,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
-        },
-      })
-      await instanceAxios
-        .get('/api/devices?field_id') // ubah URL sesuai data yang dibutuhkan
-        .then((response) => (this.devices = response.data.data))
+      try {
+        const response = await this.$api.getDevices()
+        this.devices = response.data.data
         this.startWebSocket()
-    },async getHistoricalData() {
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async getHistoricalData() {
       const instanceAxios = axios.create({
         baseURL: import.meta.env.VITE_API_URL,
         headers: {
