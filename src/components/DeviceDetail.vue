@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { addDays, format } from 'date-fns'; // Import date fns function
 export default {
     data() {
         return {
@@ -27,8 +28,8 @@ export default {
         async getUplink() {
             try {
                 const response = await this.$api.getUplinks({
-                    start_date: '2024-05-20',
-                    end_date: '2024-05-21',
+                    start_date: format(addDays(new Date(), -3), 'yyyy-MM-dd'), // Format 3 days ago to yyyy-MM-dd, e.g. 2024-05-26
+                    end_date: format(new Date(), 'yyyy-MM-dd'), // Format today to yyyy-MM-dd, e.g. 2024-05-29
                     device_id: this.deviceId,
                     load_payloads: 1,
                     per_page: 200
