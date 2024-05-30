@@ -12,6 +12,9 @@ const endpoints = {
   getDevices(params) {
     return instanceAxios.get('/api/devices', { params })
   },
+  getUplinks(params) {
+    return instanceAxios.get('/api/uplinks', { params })
+  },
 }
 
 export default endpoints
