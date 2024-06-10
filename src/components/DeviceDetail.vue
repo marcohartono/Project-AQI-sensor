@@ -1,11 +1,19 @@
 <template>
-  <div>
+
+  <b-row>
+    <b-col>
+        <div>
     Device Detail Page for Device {{ deviceId }}
     <br>
     <div>
       <b-table :items="devicePayloads" />
     </div>
   </div>
+    </b-col>
+    <b-col>
+        map
+    </b-col>
+  </b-row>
 </template>
 
 <script>

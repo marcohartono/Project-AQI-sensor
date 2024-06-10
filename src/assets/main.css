@@ -136,6 +136,10 @@ section {
   text-align: center;
 }
 
+.segmentIntro{
+  height: 500px;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .data-blocks {

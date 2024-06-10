@@ -1,17 +1,29 @@
 <template>
     <main>
   
-  
-  
+  <b-row class="segmentIntro">
+    <b-col>
+      <div class="bg-success rounded mt=400" >
+     <h1>Jakarta Air Quality Index</h1>
+       <p>Real-time updates on the air you breathe</p>
+       </div>
+    </b-col>
+    <b-col>
+  <l-map ref="map" v-model:zoom="zoom" :center="[-6.2088, 106.8456]">
+    <l-tile-layer
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      layer-type="base"
+      name="OpenStreetMap"
+    
+    ></l-tile-layer>
+
+    <l-marker :lat-lng="[-6.287368036269573, 106.6392436226691]" draggable> </l-marker>
+  </l-map>
+</b-col>
+</b-row>
   
   <div>
-    <b-row>
-      <div class="bg-success rounded mt=400" >
-    <h1>Jakarta Air Quality Index</h1>
-    <p>Real-time updates on the air you breathe</p>
-  </div>
-    </b-row>
-    <b-row>
+  <b-row>
       
       <b-col><div id="device-list" >
     <nav>
@@ -47,20 +59,7 @@
     </router-link>
   </div>
   
-  
-  <b-row>
-    <b-col md="4">
-        Column 1
-    </b-col>
-    <b-col md="8">
-        Column 2
-    </b-col>
-  </b-row>
-  <b-row class="mt-3">
-    <b-col>
-        Large Column
-    </b-col>
-  </b-row>
+
         
 
   
@@ -80,20 +79,26 @@
   import axios from 'axios'
   import { defineComponent } from 'vue'
   import Pusher from 'pusher-js'
-  import emitter from './eventBus';
   import VueSpeedometer from "vue-speedometer"
+  import "leaflet/dist/leaflet.css";
+  import { LMap, LTileLayer, LCircleMarker, LMarker } from "@vue-leaflet/vue-leaflet";
+
   
   export default defineComponent({
   name: 'SensorPage',
   components:{
     VueSpeedometer,
+    LMap,
+    LTileLayer,
+    LCircleMarker,
+    LMarker,
   },
   data() {
     return {
       devices: [],
       selectedDevice: null,
       deviceHistory: '',
-  
+      zoom: 12,
   
   
     }
