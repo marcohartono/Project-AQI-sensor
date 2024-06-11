@@ -1,15 +1,22 @@
 <template>
     <h2>
-        This is About Page
-        <b-button variant="primary">Test Button</b-button>
-        <button class="btn btn-primary">butotn</button>
-        <b-table :items="items"></b-table>
+      This is About Page
+      <b-button variant="primary">Test Button</b-button>
+      <button class="btn btn-primary">butotn</button>
+      <b-table :items="items"></b-table>
     </h2>
+    <Chart 
+      :label="['Sample', 'Sample 2', 'Sample 3']"
+      :data="sampleData"
+    />
 </template>
 
 <script>
-
+import Chart from '@/components/Chart.vue';
 export default {
+    components: {
+        Chart,
+    },
     data() {
         return {
             items: [
@@ -21,6 +28,21 @@ export default {
                 },
                 {age: 19,
                     name: 'test3'
+                },
+            ],
+            sampleData: [
+                {
+                    label: 'CO 2',
+                    backgroundColor: '#41B883',
+                    data: [10, 30, 90]
+                }, {
+                    label: 'Humidity',
+                    backgroundColor: '#E46651',
+                    data: [20, 40, 15]
+                }, {
+                    label: 'Temperature',
+                    backgroundColor: '#00D8FF',
+                    data: [60, 5, 55]
                 },
             ]
         }
