@@ -1,10 +1,13 @@
 <template>
-    <h2>
-        This is About Page
-        <b-button variant="primary">Test Button</b-button>
-        <button class="btn btn-primary">butotn</button>
-        <b-table :items="items"></b-table>
-    </h2>
+    <b-row>
+        <b-col  md="3">
+            <h1>About us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio explicabo maxime quidem pariatur id soluta dignissimos cupiditate iste, atque, enim illo minima voluptas cumque. Rem perspiciatis aperiam est? Quod, natus!</p>
+        </b-col>
+        <b-col md="9">
+            
+        </b-col>
+    </b-row>
 </template>
 
 <script>
