@@ -15,10 +15,8 @@
             name="OpenStreetMap"
           ></l-tile-layer>
           <l-marker 
-            v-for="(device, index) in devices" 
-            :key="index" 
-            :lat-lng="[device.latitude, device.longitude]" 
-            draggable
+            v-for="(device, index) in devices" :key="index" 
+            :lat-lng="[device.latitude, device.longitude]" draggable="" icon=""
           >
             {{ device.name }}
           </l-marker>
