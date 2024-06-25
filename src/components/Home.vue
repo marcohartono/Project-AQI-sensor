@@ -16,7 +16,7 @@
           ></l-tile-layer>
           <l-marker 
             v-for="(device, index) in devices" :key="index" 
-            :lat-lng="[device.latitude, device.longitude]" draggable="" icon=""
+            :lat-lng="[device.latitude, device.longitude]" draggable=""  @click="handleClick()"
           >
             {{ device.name }}
           </l-marker>
@@ -102,6 +102,10 @@ export default defineComponent({
     selectDevice(index) {
       this.selectedDevice = index
     },
+    handleClick(deviceName = 'ESP32-AQS') {
+        const routeData = this.$router.resolve({name: 'Device Detail', params: {deviceId: deviceName}});
+        window.open(routeData.href, '_blank')
+      },
     startWebSocket() {
       const pusher = new Pusher(import.meta.env.VITE_PUSHER_KEY, {
         cluster: 'ap1',
@@ -125,6 +129,7 @@ export default defineComponent({
         console.log(error)
       }
     },
+    
     async getHistoricalData() {
       const instanceAxios = axios.create({
         baseURL: import.meta.env.VITE_API_URL,
