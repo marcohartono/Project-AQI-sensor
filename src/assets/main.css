@@ -2,12 +2,23 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 header {
   background-color: #333;
   color: white;
+}
+
+.navbar{
+  background-color:#333;
+}
+
+nav{
+  background-color: whitesmoke;
+  display: flex;
+  margin: 0px;
+  
 }
 #Hero-section {
   background: linear-gradient(to right, rgba(89, 213, 188, 0.7), rgba(34, 215, 110, 0.7)), url('/images/jakarta-cityscape.jpg') no-repeat center center/cover;
@@ -60,6 +71,7 @@ nav ul li {
 
 #device-list nav ul li{
   border-bottom: 1px solid #ccc;
+  background-color: whitesmoke;
 }
 
 #device-list a{
