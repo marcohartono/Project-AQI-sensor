@@ -14,12 +14,16 @@
             layer-type="base"
             name="OpenStreetMap"
           ></l-tile-layer>
-          <l-marker 
-            v-for="(device, index) in devices" :key="index" 
+          <div v-for="(device, index) in devices" :key="index" >
+            <l-marker 
+            v-if="device.latitude && device.longitude"
+             
             :lat-lng="[device.latitude, device.longitude]" draggable=""  @click="handleClick()"
           >
             {{ device.name }}
           </l-marker>
+          </div>
+          
         </l-map>
       </b-col>
     </b-row>
