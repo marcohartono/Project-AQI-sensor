@@ -18,9 +18,9 @@
             <l-marker 
             v-if="device.latitude && device.longitude"
              
-            :lat-lng="[device.latitude, device.longitude]" draggable=""  @click="handleClick()"
+            :lat-lng="[device.latitude, device.longitude]" draggable=""  @click="handleClick(device.device_id)" name="2"
           >
-            {{ device.name }}
+    
           </l-marker>
           </div>
           
@@ -106,8 +106,8 @@ export default defineComponent({
     selectDevice(index) {
       this.selectedDevice = index
     },
-    handleClick(deviceName = 'ESP32-AQS') {
-        const routeData = this.$router.resolve({name: 'Device Detail', params: {deviceId: deviceName}});
+    handleClick(device_Id) {
+        const routeData = this.$router.resolve({name: 'Device Detail', params: {deviceId: device_Id}});
         window.open(routeData.href, '_blank')
       },
     startWebSocket() {
