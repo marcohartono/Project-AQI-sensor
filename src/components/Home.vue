@@ -5,7 +5,7 @@
       <b-col>
         <div>
           <h1>Project Clarity</h1>
-          <h2>Be Mindful of Your Workspace: Elevate Productivity and Well-being with Cl(air)ity's Smart Air Quality Sensors. Because a Healthy Environment Inspires Brilliance.</h2>
+          <h3>Be Mindful of Your Workspace: Elevate Productivity and Well-being with Cl(air)ity's Smart Air Quality Sensors. Able to be monitored from anywhere in the world</h3>
         </div>
       </b-col>
       <b-col>
@@ -13,9 +13,9 @@
       </b-col>
     </b-row>
 
-    <b-row style="height: 400px;">
-      <h3>Click the markers to see the details of each device</h3>
-      <l-map ref="map" v-model:zoom="zoom" :center="[-6.2088, 106.8456]">
+    <b-row style="height: 500px;" class="middleSection">
+      <b-col>
+        <l-map ref="map" v-model:zoom="zoom" :center="[-6.2088, 106.8456]" style="height: 350px;">
           <l-tile-layer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             layer-type="base"
@@ -32,12 +32,18 @@
           </div>
           
         </l-map>
+      </b-col>
+      <b-col>
+        <h1>Monitor Air Quality in Real Time</h1>
+        <h3>Our interactive map below shows the location of all our Cl(air)ity sensors deployed in various indoor spaces. Each marker represents an active air quality sensor. Click on any marker to view detailed information about the air quality at that specific location, including data on particulate matter (PM2.5), carbon dioxide (CO2), temperature, and humidity levels.</h3>
+      </b-col>
+      
+      
 
         
     </b-row>
   
-    <div>
-      <b-row>
+      <b-row style="margin-top: 0px;" class="deviceData">
         <b-col>
           <div id="device-list">
             <nav>
@@ -51,15 +57,25 @@
         </b-col>
       </b-row>
       <b-row>
+        
         <b-col md="4">
-          <VueSpeedometer 
+          <b-row>
+            <VueSpeedometer 
             :value="Number(devices[selectedDevice]?.latest_payload?.CO2 ?? 0)" 
-            :minValue="400" 
-            :maxValue="3100" 
-            :segments="3" 
-            startColor="#00FF00" 
-            endColor="#FFFF00"
+            :minValue="0" 
+            :maxValue="2000" 
+            :segments="4" 
+            startColor="#60cb75" 
+            endColor="#e84940"
+            style="height: 200px;"
           />
+          </b-row>
+          
+          <b-row>
+            <p>Use the navigation above to select different air quality sensors. Each tab represents a different sensor deployed in various locations. By selecting a tab, you can view detailed information about the air quality at that specific location.
+
+            </p>
+          </b-row>
         </b-col>
         <b-col md="8">
           <section id="sensor" v-if="devices[selectedDevice]">
@@ -73,7 +89,6 @@
           </section>
         </b-col>
       </b-row>
-    </div>
 
   </main>
 </template>

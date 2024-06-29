@@ -1,14 +1,5 @@
 <template>
-    <h2>
-      This is About Page
-      <b-button variant="primary">Test Button</b-button>
-      <button class="btn btn-primary">butotn</button>
-      <b-table :items="items"></b-table>
-    </h2>
-    <Chart 
-      :label="['Sample', 'Sample 2', 'Sample 3']"
-      :data="sampleData"
-    />
+   
 </template>
 
 <script>

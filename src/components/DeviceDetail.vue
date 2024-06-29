@@ -1,29 +1,53 @@
 <template>
 
-  <b-row>
-    <b-col>
+<b-row class="p-3 bg-light">
+    <h1 class="montserrat-bold">
+        Welcome to the detailed data page for device {{ deviceId }}. 
+    </h1>
+    <div class="montserrat-text">
+        <p >
+        Here, you can find comprehensive information about the air quality monitored by this device. The table below lists the real-time data collected, including:
+    </p>
+    <div class="list-unstyled">
+        <ul>
+            <li>PM2.5: Concentration of particulate matter less than 2.5 micrometers in diameter such as dust and smoke.</li>
+            <li>CO2: Carbon dioxide levels measured in parts per million (PPM).</li>
+            <li>Temperature: The ambient temperature in degrees Celsius.</li>
+            <li>Humidity: The relative humidity percentage.</li>
+        </ul>  
+    </div>
+    </div>
+    
+</b-row >
+
+
+  <b-row class="row">
+    <b-col class="col-5.8 border bg-light ">
+        <h1 class="montserrat-bold">Table:</h1>
         <div>
-    Device Detail Page for Device {{ deviceId }}
+    
     <br>
     <div>
-      <b-table :items="devicePayloads" />
+      <b-table :items="devicePayloads" class="table table-striped bg-light" />
     </div>
   </div>
     </b-col>
-    <b-col>
-        <Chart v-if="!isLoading"
+
+    <b-col class="col-5.8 offset-md-0.4 border bg-light">
+        <h1 class="montserrat-bold">Charts:</h1>
+        <Chart v-if="!isLoading" class="chartData"
       :label="chartLabel"
       :data="CO2Data"
     />
-    <Chart v-if="!isLoading"
+    <Chart v-if="!isLoading" class="chartData"
       :label="chartLabel"
       :data="HumidityData"
     />
-    <Chart v-if="!isLoading"
+    <Chart v-if="!isLoading" class="chartData"
       :label="chartLabel"
       :data="TemperatureData"
     />
-    <Chart v-if="!isLoading"
+    <Chart v-if="!isLoading" class="chartData"
       :label="chartLabel"
       :data="PM25Data"
     />
@@ -76,7 +100,7 @@ export default {
             return [
                 {
                     label: 'Humidity',
-                    backgroundColor: '#41B883',
+                    backgroundColor: '#7da4ff',
                     data: this.devicePayloads.slice(1, 20).map(item => item.Humidty)
                 }
             ]
@@ -88,7 +112,7 @@ export default {
             return [
                 {
                     label: 'Temperature',
-                    backgroundColor: '#41B883',
+                    backgroundColor: '#ff7dc7',
                     data: this.devicePayloads.slice(1, 20).map(item => item.Temperature)
                 }
             ]
@@ -100,7 +124,7 @@ export default {
             return [
                 {
                     label: 'PM25',
-                    backgroundColor: '#41B883',
+                    backgroundColor: '#ffe77d',
                     data: this.devicePayloads.slice(1, 20).map(item => item.PM25)
                 }
             ]

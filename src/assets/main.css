@@ -1,34 +1,72 @@
 body {
   font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  
   box-sizing: content-box;
+
 }
 
 header {
   background-color: #333;
-  color: white;
 }
 
 
 #Hero-section {
-  background: linear-gradient(to right, rgba(89, 213, 188, 0.7), rgba(34, 215, 110, 0.7)), url('/images/jakarta-cityscape.jpg') no-repeat center center/cover;
-  color: rgb(0, 0, 0);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  background: #c5dedd;
+  text-align: right;
   padding: 50px 20px;
   position: relative;
 }
 
+.montserrat-bold {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.montserrat-text {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 #Hero-section h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 3em;
+  margin-bottom: 10px;
+  
+}
+
+#Hero-section h3 {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  
+}
+
+.middleSection{
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(197, 222, 221, 1), rgb(135, 153, 153));
+  padding: 50px 20px;
+  position: relative;
+}
+
+.middleSection h1{
+  font-family: "Raleway", sans-serif;
   font-size: 3em;
   margin-bottom: 10px;
 }
 
-#Hero-section p {
+.middleSection h3{
+  font-family: "Raleway", sans-serif;
   font-size: 1.5em;
   margin-bottom: 20px;
 }
-
 
 nav ul {
   list-style-type: none;
@@ -38,6 +76,7 @@ nav ul {
 nav ul li {
   display: inline;
   margin-right: 20px;
+  color: black;
 }
 
 #device-list{
@@ -149,6 +188,7 @@ section {
       grid-template-columns: 1fr;
   }
 }
+
 
 /* Add more styles as needed for other elements */
 

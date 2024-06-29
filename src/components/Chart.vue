@@ -1,5 +1,5 @@
 <template>
-    <div style="height:600px;width: 600px; display: flex;flex-direction:column;">
+    <div style="height:300px;width: 500px; display: flex;flex-direction:column;">
       <vue3-chart-js
         type="line"
         :data="chartData"
