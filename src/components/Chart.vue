@@ -1,7 +1,6 @@
 <template>
     <div style="height:600px;width: 600px; display: flex;flex-direction:column;">
       <vue3-chart-js
-        id="bar-chart"
         type="line"
         :data="chartData"
       ></vue3-chart-js>

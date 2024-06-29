@@ -1,14 +1,21 @@
 <template>
   <main>
+    
     <b-row class="segmentIntro" id="Hero-section">
       <b-col>
         <div>
           <h1>Project Clarity</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta placeat dignissimos maiores. Laudantium expedita id tempore labore enim totam, in natus, dolor odit excepturi sint eos animi culpa ratione illo?</p>
+          <h2>Be Mindful of Your Workspace: Elevate Productivity and Well-being with Cl(air)ity's Smart Air Quality Sensors. Because a Healthy Environment Inspires Brilliance.</h2>
         </div>
       </b-col>
       <b-col>
-        <l-map ref="map" v-model:zoom="zoom" :center="[-6.2088, 106.8456]">
+        <spline :scene="scenes.first" style="height: 400px;" />
+      </b-col>
+    </b-row>
+
+    <b-row style="height: 400px;">
+      <h3>Click the markers to see the details of each device</h3>
+      <l-map ref="map" v-model:zoom="zoom" :center="[-6.2088, 106.8456]">
           <l-tile-layer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             layer-type="base"
@@ -25,7 +32,8 @@
           </div>
           
         </l-map>
-      </b-col>
+
+        
     </b-row>
   
     <div>
@@ -67,11 +75,6 @@
       </b-row>
     </div>
 
-    <div v-for="(device, index) in devices" :key="index">
-      <router-link :to="`/detail/${device.device_id}`">
-        {{ device.name }}
-      </router-link>
-    </div>
   </main>
 </template>
 
@@ -82,6 +85,7 @@ import Pusher from 'pusher-js'
 import VueSpeedometer from "vue-speedometer"
 import "leaflet/dist/leaflet.css"
 import { LMap, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet"
+import Spline from "spline-vue/v3";
 
 export default defineComponent({
   name: 'SensorPage',
@@ -90,6 +94,7 @@ export default defineComponent({
     LMap,
     LTileLayer,
     LMarker,
+    Spline,
   },
   data() {
     return {
@@ -97,6 +102,9 @@ export default defineComponent({
       selectedDevice: null,
       deviceHistory: '',
       zoom: 12,
+      scenes: {
+          first: "https://prod.spline.design/Uq6aF3NT8QGE4v13/scene.splinecode"
+          }
     }
   },
   mounted() {
