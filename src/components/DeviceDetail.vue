@@ -25,7 +25,7 @@
     <b-col class="col-5.8 border bg-light ">
         <h1 class="montserrat-bold">Table:</h1>
         <div>
-    
+            
     <br>
     <div>
       <b-table :items="devicePayloads" class="table table-striped bg-light" />
